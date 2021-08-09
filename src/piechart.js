@@ -10,7 +10,7 @@ import {
     ResponsiveContainer, 
     AreaChart, 
     Area, 
-    BarChart, 
+    BarChart,     
     Pie,
     PieChart,
     Bar} from 'recharts';

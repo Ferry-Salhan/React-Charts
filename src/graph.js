@@ -9,7 +9,7 @@ import {
     Legend, 
     ResponsiveContainer, 
     AreaChart, 
-    Area, 
+    Area,    
     BarChart, 
     Bar} from 'recharts';
 import './App.css';
@@ -17,108 +17,120 @@ import './App.css';
 const pdata = [
     {
       name: 'Jan',
-      "security (threats)": 18,
-      low: 7, 
-      medium: 5,
-      high: 4,
-      critical: 2,
+      "Security (threats)": 18,
+      Low: 7, 
+      Medium: 5,
+      High: 4,
+      Critical: 2,
     },
     {
       name: 'Feb',
-      "security (threats)": 16,
-      low: 8,
-      medium: 5,
-      high: 3,
-      critical: 0,
+      "Security (threats)": 16,
+      Low: 8,
+      Medium: 5,
+      High: 3,
+      Critical: 0,
     },
     {
       name: 'March',
-      "security (threats)": 17,
-      low: 8,
-      medium: 6,
-      high: 2,
-      critical: 1,
+      "Security (threats)": 17,
+      Low: 8,
+      Medium: 6,
+      High: 2,
+      Critical: 1,
     },
     {
       name: 'Apr',
-      "security (threats)": 15,
-      low: 9,
-      medium: 5,
-      high: 1,
-      critical: 0,
+      "Security (threats)": 15,
+      Low: 9,
+      Medium: 5,
+      High: 1,
+      Critical: 0,
     },
     {
       name: 'May',
-      "security (threats)": 14,
-      low: 7,
-      medium: 4,
-      high: 2,
-      critical: 1,
+      "Security (threats)": 14,
+      Low: 7,
+      Medium: 4,
+      High: 2,
+      Critical: 1,
     },
     {
       name: 'Jun',
-      "security (threats)": 5,
-      low: 3,
-      medium: 3,
-      high: 0,
-      critical: 0,
+      "Security (threats)": 5,
+      Low: 3,
+      Medium: 3,
+      High: 0,
+      Critical: 0,
     },
     {
         name: 'Jul',
-        "security (threats)": 11,
-        low: 5,
-        medium: 3,
-        high: 2,
-        critical: 1,
+        "Security (threats)": 11,
+        Low: 5,
+        Medium: 3,
+        High: 2,
+        Critical: 1,
     },
 
     {
         name: 'Aug',
-        "security (threats)": 14,
-        low: 7,
-        medium: 3,
-        high: 2,
-       critical: 2,
+        "Security (threats)": 14,
+        Low: 7,
+        Medium: 3,
+        High: 2,
+       Critical: 2,
     },
 
     {
         name: 'Sep',
-        "security (threats)": 13,
-        low: 8,
-        medium: 3,
-        high: 1,
-        critical: 1,
+        "Security (threats)": 13,
+        Low: 8,
+        Medium: 3,
+        High: 1,
+        Critical: 1,
       },
 
       {
         name: 'Oct',
-        "security (threats)": 12,
-        low: 6,
-        medium: 4,
-        high: 2,
-        critical: 0,
+        "Security (threats)": 12,
+        Low: 6,
+        Medium: 4,
+        High: 2,
+        Critical: 0,
       },
 
       {
         name: 'Nov',
-        "security (threats)": 17,
-        low: 8,
-        medium: 4,
-        high: 2,
-       critical: 2,
+        "Security (threats)": 17,
+        Low: 8,
+        Medium: 4,
+        High: 2,
+       Critical: 2,
       },
 
       {
         name: 'Dec',
-        "security (threats)": 14,
-        low: 7,
-        medium: 5,
-        high: 1,
-       critical: 1,
+        "Security (threats)": 14,
+        Low: 7,
+        Medium: 5,
+        High: 1,
+       Critical: 1,
       },
 
 
   ];
+
+ class CustomizedLabel extends PureComponent {
+    render() {
+      const { x, y, stroke, value } = this.props;
+  
+      return (
+        <text x={x} y={y} dy={-4} fill="#fff" fontSize={15} textAnchor="middle">
+          {value}
+        </text>
+      );
+    }
+  }
 
 function Graph(){
     return(
@@ -128,24 +140,69 @@ function Graph(){
         <h3 className="change">Vulnerability Change (Severity) Trend</h3>
        <ResponsiveContainer width="100%" aspect={3}>
        
-       <LineChart data={pdata} width={500} height={400}
+       <LineChart data={pdata} width={500} height={400} backgroundColor="rgb(17, 17, 17)"
        margin={{
-           top: 5, right: 200, left: 20, bottom: 10
+           top: 5, right: 60, left: 20, bottom: 10
        }}>
-       <CartesianGrid strokeDasharray="3 3" />
+       <CartesianGrid 
+        // strokeDasharray="1" 
+        //  strokeOpacity="#fff"
+        stroke="#a4b0be"
+      //  horizontal="true" vertical="true"
+       />
         <XAxis dataKey="name" interval={'preserveStartEnd'} 
+        tick={{ fill: "#fff"}}
             // tickFormatter={(value) => value + ' ' + "Programming"}
         />
-        <YAxis />
-        <Tooltip contentStyle={{
-             backgroundColor:'yellow'
-        }} />
-        <Legend />
-        <Line type="monotone" dataKey="security (threats)" stroke="blue" strokeWidth={3} activeDot={{ r: 8}} />
-         <Line type="monotone" dataKey="low" stroke="#8884d8" strokeWidth={3} activeDot={{ r: 8}} /> 
-         <Line type="monotone" dataKey="medium" stroke="yellow" strokeWidth={3} activeDot={{ r: 8}} /> 
-         <Line type="monotone" dataKey="high" stroke="grey" strokeWidth={3} activeDot={{ r: 8}} />
-         <Line type="monotone" dataKey="critical" stroke="orange" strokeWidth={3} activeDot={{ r: 8}} /> 
+        <YAxis tick={{ fill: "#fff"}} />
+        <Tooltip 
+        // contentStyle={{
+        //      backgroundColor:'yellow'
+        // }}
+         />
+        <Legend verticalAlign="top" height={36} />
+
+        <Line dataKey="Security (threats)" stroke="#3742fa" strokeWidth={3} 
+         activeDot={{ r: 4}} 
+         dot={{ fill: "#3742fa"}}
+         label={<CustomizedLabel />}
+        />
+
+         <Line 
+        //  type="monotone"
+         dataKey="Low" 
+         stroke="#70a1ff" 
+         strokeWidth={3} 
+         activeDot={{ r: 4}} 
+         dot={{ fill: "#70a1ff"}}
+         label={<CustomizedLabel />}
+         /> 
+
+         <Line 
+         dataKey="Medium" 
+         stroke="#eccc68" 
+         strokeWidth={3} 
+         dot={{ fill: "#eccc68"}}
+         activeDot={{ r: 4}} 
+         label={<CustomizedLabel />}
+         /> 
+
+         <Line 
+         dataKey="High" 
+         stroke="#747d8c" 
+         strokeWidth={3} 
+         activeDot={{ r: 4}} 
+         dot={{ fill: "#747d8c"}}
+         label={<CustomizedLabel />}
+         />
+         <Line 
+         dataKey="Critical" 
+         stroke="#ffa502" 
+         strokeWidth={3} 
+         activeDot={{ r: 4}} 
+         dot={{ fill: "#ffa502"}}
+         label={<CustomizedLabel />}
+         /> 
 
        </LineChart>
        </ResponsiveContainer>

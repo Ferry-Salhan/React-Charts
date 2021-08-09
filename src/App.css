@@ -1,4 +1,9 @@
 
+body{
+   background-color: #2C3A47;  
+  text-align: center;
+  margin-top: 2em;
+}
 
 .chart-heading{
   color: rgb(17, 17, 17);
@@ -10,10 +15,12 @@
 
 .change{
   text-align: center;
+  color: aliceblue;
 }
 
 .manage{
   text-align: center;
+  color: aliceblue;
 }
 
 .threats{
@@ -22,6 +29,7 @@
 
 .service{
  text-align: center;
+ color: aliceblue;
 }
 
 /* .linechart{
