@@ -1,174 +1,414 @@
-import React, { PureComponent } from 'react';
+import React, { Fragment, PureComponent } from 'react';
 import { 
-    LineChart, 
-    Line, 
-    XAxis, 
-    YAxis, 
-    CartesianGrid, 
-    Tooltip, 
-    Legend, 
-    ResponsiveContainer, 
-    AreaChart, 
-    Area, 
+  LineChart, 
+  Line, 
+  XAxis, 
+  YAxis, 
+  CartesianGrid,
+   Tooltip, Legend,
+    ResponsiveContainer,
     BarChart, 
-    Bar} from 'recharts';
-import './App.css';
+     Bar } from 'recharts';
 
 const pdata = [
-    {
-      name: 'Jan',
-      "security(threats)": 18,
-      low: 7, 
-      medium: 5,
-      high: 4,
-      critical: 2,
-    },
-    {
-      name: 'Feb',
-      security: 16,
-      low: 8,
-      medium: 5,
-      high: 3,
-      critical: 0,
-    },
-    {
-      name: 'March',
-      security: 17,
-      low: 8,
-      medium: 6,
-      high: 2,
-      critical: 1,
-    },
-    {
-      name: 'Apr',
-      security: 15,
-      low: 9,
-      medium: 5,
-      high: 1,
-      critical: 0,
-    },
-    {
-      name: 'May',
-      security: 14,
-      low: 7,
-      medium: 4,
-      high: 2,
-      critical: 1,
-    },
-    {
-      name: 'Jun',
-      security: 5,
-      low: 3,
-      medium: 3,
-      high: 0,
-      critical: 0,
-    },
-    {
-        name: 'Jul',
-        security: 11,
-        low: 5,
-        medium: 3,
-        high: 2,
-        critical: 1,
-    },
 
-    {
-        name: 'Aug',
-        security: 14,
-        low: 7,
-        medium: 3,
-        high: 2,
-       critical: 2,
-    },
+  {
+          name: 'Jan',
+          "Security(threats)": 18,
+          Low: 7, 
+          Medium: 5,
+          High: 4,
+          Critical: 2,
+        },
+        {
+          name: 'Feb',
+          Security: 16,
+          Low: 8,
+          Medium: 5,
+          High: 3,
+          Critical: 0,
+        },
+        {
+          name: 'March',
+          Security: 17,
+          Low: 8,
+          Medium: 6,
+          High: 2,
+          Critical: 1,
+        },
+        {
+          name: 'Apr',
+          security: 15,
+          Low: 9,
+          Medium: 5,
+          High: 1,
+          Critical: 0,
+        },
+        {
+          name: 'May',
+          Security: 14,
+          Low: 7,
+          Medium: 4,
+          High: 2,
+          Critical: 1,
+        },
+        {
+          name: 'Jun',
+          Security: 5,
+          Low: 3,
+          Medium: 3,
+          High: 0,
+          Critical: 0,
+        },
+        {
+            name: 'Jul',
+            Security: 11,
+            Low: 5,
+            Medium: 3,
+            High: 2,
+            Critical: 1,
+        },
+    
+        {
+            name: 'Aug',
+            Security: 14,
+            Low: 7,
+            Medium: 3,
+            High: 2,
+           Critical: 2,
+        },
+    
+        {
+            name: 'Sep',
+            Security: 13,
+            Low: 8,
+            Medium: 3,
+            High: 1,
+            Critical: 1,
+          },
+    
+          {
+            name: 'Oct',
+            Security: 12,
+            Low: 6,
+            Medium: 4,
+            High: 2,
+            Critical: 0,
+          },
+    
+          {
+            name: 'Nov',
+            Security: 17,
+            Low: 8,
+            Medium: 4,
+            High: 2,
+           Critical: 3,
+          },
+    
+          {
+            name: 'Dec',
+            security: 14,
+            Low: 7,
+            Medium: 5,
+            High: 1,
+            Critical: 1,
+          },
+    
+    ];
 
-    {
-        name: 'Sep',
-        security: 13,
-        low: 8,
-        medium: 3,
-        high: 1,
-        critical: 1,
-      },
 
-      {
-        name: 'Oct',
-        security: 12,
-        low: 6,
-        medium: 4,
-        high: 2,
-        critical: 0,
-      },
+class CustomizedLabel extends PureComponent {
+       render() {
+         const { x, y, stroke, value } = this.props;
+  
+        return (
+           <text x={x} y={y} dy={-4} fill="#fff" fontSize={13} textAnchor="middle">
+             {value}
+           </text>
+         );
+       }
+     }
 
-      {
-        name: 'Nov',
-        security: 17,
-        low: 8,
-        medium: 4,
-        high: 2,
-       critical: 3,
-      },
+export default class Bargraph extends PureComponent {
+  // static demoUrl = 'https://codesandbox.io/s/line-chart-with-customized-dot-7on4t';
 
-      {
-        name: 'Dec',
-        security: 14,
-        low: 7,
-        medium: 5,
-        high: 1,
-       critical: 1,
-      },
+  render() {
+    return (
+      <Fragment>
+      <div className="heading">
+      {/* <p className="service">Security</p> */}
+      <ResponsiveContainer width="100%" height="100%">
+      
+      <BarChart data={pdata} 
+         width={200} height={400} 
+        backgroundColor="rgb(17, 17, 17)"
+        margin={{
+            top: 5, right: 60, left: 20, bottom: 10
+        }}
+        >
+          <CartesianGrid 
+          // strokeDasharray="3 3" 
+          stroke="#fff"
+        // horizontal="true" vertical=""
+          />
+          <XAxis 
+          dataKey="name" 
+          interval={'preserveStartEnd'} 
+          tick={{ fill: "#fff"}}
+          />
+          <YAxis  
+          tick={{ fill: "#fff"}}
+          label={{ fill: "#fff", angle: -90, position: 'insideLeft' }}
+           />
+          <Tooltip />
+          <Legend verticalAlign="bottom" height={36} />
 
+          {/* <Line type="monotone" dataKey="pv" stroke="#8884d8" dot={<CustomizedDot />} />
+          <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
+          <Bar dataKey="Critical" fill="#1B9CFC"
+         //  label={<CustomizedLabel />}
+         />
 
-  ];
+         <Bar 
+         //  type="monotone"
+          dataKey="High" 
+          fill="#ff7f50" 
+        //  label={<CustomizedLabel />}
+          /> 
 
-function BarGraph(){
-    return(
-     <>
-     <div className="barchart">
-     <h3 className="manage">Vulnerabilities Management</h3>
-       
-     <ResponsiveContainer width="100%" aspect={3}>
-       <BarChart width={500} height={400} data={pdata}
-       margin={{
-           top: 5, right: 200, left: 20, bottom: 10
-       }}>
-      <CartesianGrid strokeDasharray="3 3" />
-     <XAxis dataKey="name" />
-     <YAxis />
-     <Tooltip />
-     <Legend />
-     <Bar dataKey="critical" fill="blue" />
-     <Bar dataKey="high" fill="orange" />
-     <Bar dataKey="medium" fill="grey" />
-     <Bar dataKey="low" fill="yellow" />
-      </BarChart>
+        <Bar 
+          dataKey="Medium" 
+          fill="#747d8c" 
+         //  label={<CustomizedLabel />}
+          /> 
+   
+        <Bar
+          dataKey="Low" 
+          fill="#eccc68" 
+      //    label={<CustomizedLabel />}
+          /> 
+
+    
+        </BarChart>
       </ResponsiveContainer>
-       {/* <ResponsiveContainer width="100%" aspect={3}>
-       
-       <LineChart data={pdata} width={500} height={400}
-       margin={{
-           top: 5, right: 200, left: 20, bottom: 10
-       }}>
-       <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" interval={'preserveStartEnd'} 
-            // tickFormatter={(value) => value + ' ' + "Programming"}
-        />
-        <YAxis />
-        <Tooltip contentStyle={{
-             backgroundColor:'yellow'
-        }} />
-        <Legend />
-        <Line type="monotone" dataKey="security" stroke="blue" strokeWidth={3} activeDot={{ r: 8}} />
-         <Line type="monotone" dataKey="low" stroke="#8884d8" strokeWidth={3} activeDot={{ r: 8}} /> 
-         <Line type="monotone" dataKey="medium" stroke="yellow" strokeWidth={3} activeDot={{ r: 8}} /> 
-         <Line type="monotone" dataKey="high" stroke="grey" strokeWidth={3} activeDot={{ r: 8}} />
-         <Line type="monotone" dataKey="critical" stroke="orange" strokeWidth={3} activeDot={{ r: 8}} /> 
-
-       </LineChart>
-       </ResponsiveContainer> */}
-       </div>
-
-     </>
+      </div>
+      </Fragment>
     );
+  }
 }
 
-export default BarGraph;
+
+// import React, { PureComponent } from 'react';
+// import { 
+//     LineChart, 
+//     Line, 
+//     XAxis, 
+//     YAxis, 
+//     CartesianGrid, 
+//     Tooltip, 
+//     Legend, 
+//     ResponsiveContainer, 
+//     AreaChart,    
+//     Area, 
+//     BarChart, 
+//     Bar} from 'recharts';
+// import Pie3d from './piechart';
+// import './App.css';
+
+// const pdata = [
+//     {
+//       name: 'Jan',
+//       "Security(threats)": 18,
+//       Low: 7, 
+//       Medium: 5,
+//       High: 4,
+//       Critical: 2,
+//     },
+//     {
+//       name: 'Feb',
+//       Security: 16,
+//       Low: 8,
+//       Medium: 5,
+//       High: 3,
+//       Critical: 0,
+//     },
+//     {
+//       name: 'March',
+//       Security: 17,
+//       Low: 8,
+//       Medium: 6,
+//       High: 2,
+//       Critical: 1,
+//     },
+//     {
+//       name: 'Apr',
+//       security: 15,
+//       Low: 9,
+//       Medium: 5,
+//       High: 1,
+//       Critical: 0,
+//     },
+//     {
+//       name: 'May',
+//       Security: 14,
+//       Low: 7,
+//       Medium: 4,
+//       High: 2,
+//       Critical: 1,
+//     },
+//     {
+//       name: 'Jun',
+//       Security: 5,
+//       Low: 3,
+//       Medium: 3,
+//       High: 0,
+//       Critical: 0,
+//     },
+//     {
+//         name: 'Jul',
+//         Security: 11,
+//         Low: 5,
+//         Medium: 3,
+//         High: 2,
+//         Critical: 1,
+//     },
+
+//     {
+//         name: 'Aug',
+//         Security: 14,
+//         Low: 7,
+//         Medium: 3,
+//         High: 2,
+//        Critical: 2,
+//     },
+
+//     {
+//         name: 'Sep',
+//         Security: 13,
+//         Low: 8,
+//         Medium: 3,
+//         High: 1,
+//         Critical: 1,
+//       },
+
+//       {
+//         name: 'Oct',
+//         Security: 12,
+//         Low: 6,
+//         Medium: 4,
+//         High: 2,
+//         Critical: 0,
+//       },
+
+//       {
+//         name: 'Nov',
+//         Security: 17,
+//         Low: 8,
+//         Medium: 4,
+//         High: 2,
+//        Critical: 3,
+//       },
+
+//       {
+//         name: 'Dec',
+//         security: 14,
+//         Low: 7,
+//         Medium: 5,
+//         High: 1,
+//         Critical: 1,
+//       },
+
+
+//   ];
+
+
+//   class CustomizedLabel extends PureComponent {
+//     render() {
+//       const { x, y, stroke, value } = this.props;
+  
+//       return (
+//         <text x={x} y={y} dy={-4} fill="#fff" fontSize={13} textAnchor="middle">
+//           {value}
+//         </text>
+//       );
+//     }
+//   }
+
+// function BarGraph(){
+//     return(
+//      <> 
+//      <div className="barchart">
+//      <h3 className="manage">Vulnerabilities Management</h3>
+
+//      <ResponsiveContainer 
+     
+//       aspect={3}>
+       
+//        <BarChart data={pdata} 
+//         width={200} height={400} 
+//        backgroundColor="rgb(17, 17, 17)"
+//        margin={{
+//            top: 5, right: 60, left: 20, bottom: 10
+//        }}
+//        > <BarChart data={pdata} 
+//         width={200} height={400} 
+//        backgroundColor="rgb(17, 17, 17)"
+//        margin={{
+//            top: 5, right: 60, left: 20, bottom: 10
+//        }}
+//        >
+//        <CartesianGrid 
+//         // strokeDasharray="1" 
+//         //  strokeOpacity="#fff"
+//         stroke="#fff"
+//         horizontal="true" vertical=""
+//        />
+//         <XAxis dataKey="name" interval={'preserveStartEnd'} 
+//         tick={{ fill: "#fff"}}
+//             // tickFormatter={(value) => value + ' ' + "Programming"}
+//         />
+//         <YAxis tick={{ fill: "#fff"}} />
+//         <Tooltip 
+//         // contentStyle={{
+//         //      backgroundColor:'yellow'
+//         // }}
+//          />
+//         <Legend
+//         margin={{
+//            top: 30, right: 0, left: 2, bottom: 10
+//        }} 
+//          height={36} />
+
+//         <Bar dataKey="Critical" fill="#1B9CFC"
+//         //  label={<CustomizedLabel />}
+//         />
+
+//          <Bar 
+//         //  type="monotone"
+//          dataKey="High" 
+//          fill="#ff7f50" 
+//         //  label={<CustomizedLabel />}
+//          /> 
+
+//          <Bar 
+//          dataKey="Medium" 
+//          fill="#747d8c" 
+//         //  label={<CustomizedLabel />}
+//          /> 
+
+//          <Bar
+//          dataKey="Low" 
+//          fill="#eccc68" 
+//          label={<CustomizedLabel />}
+//          />
+
+//        </BarChart>
+        
+//        </ResponsiveContainer>
+       
+//       </div>
+//      </>
+//     );
+// }
+
+// export default BarGraph;

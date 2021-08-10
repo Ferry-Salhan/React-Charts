@@ -1,19 +1,101 @@
 
+body{
+   background-color: rgb(201, 203, 209);  
+  text-align: center;
+  border: 2px solid black;
+  padding-bottom: 5px;
+  /* margin-top: 2em; */
+}
+
+.app{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+   align-items: center; 
+ 
+}
+
+.heading{
+  background-color: rgb(38, 42, 51); 
+  margin: 5px 5px 5px 3px;
+}
+
+.pieheading{
+  margin: 5px 5px 5px 0px;
+  background-color: rgb(38, 42, 51); 
+}
+
+.main{
+  margin: 5px 5px 0px 3px;
+  background-color: rgb(38, 42, 51); 
+}
+
+.newheading{
+  margin: 5px 5px 0px 0px;
+  background-color: rgb(38, 42, 51); 
+}
+
+.lineheading{
+  margin: 5px 5px 0px 5px;
+  background-color: rgb(38, 42, 51);
+  padding-bottom: 10px;
+}
+
+.cartheading{
+  margin: 5px 5px 0px 0px;
+  background-color: rgb(38, 42, 51);
+}
+
+.gridheading{
+  margin: 5px 5px 0px 5px;
+  background-color: rgb(38, 42, 51);
+}
 
 .chart-heading{
   color: rgb(17, 17, 17);
   background-color:  rgb(219, 142, 53);
-  border-color: blue;
-  text-align: center;
+  margin: 0%;
+  width: 100%;
+  padding-bottom: 10px;
+   text-align: center; 
   /* text-decoration: underline; */
 }
 
+h1 {
+ padding-bottom: 10px;
+}
+
+.wrapper{
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px; 
+  width: 100%;
+  height: 200px;
+  align-items: center;
+  padding-bottom: 320px;
+}
+
+.wrapper-content{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: fit-content;
+  overflow: hidden;
+  /* gap: 5px;  */
+   width: 100%; 
+   height: 400px;
+   /* padding-bottom: 30px; */
+   
+}
+
 .change{
-  text-align: center;
+  /* text-align: center; */
+  color: aliceblue;
 }
 
 .manage{
-  text-align: center;
+   text-align: left;
+   padding-left: 230px;
+   color: aliceblue;
 }
 
 .threats{
@@ -22,10 +104,15 @@
 
 .service{
  text-align: center;
+ color: aliceblue;
 }
 
-/* .linechart{
-  background: rgb(99, 90, 90);
+ /* .linechart{
+  background: rgb(99, 90, 90);  
+}  */
+
+/* .chart{
+  padding-right: 100px;
 } */
 
 /* .App {
