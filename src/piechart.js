@@ -100,8 +100,8 @@ const Pie3d = () => {
    const chartConfigs = {   
     type: "pie3d", // The chart type
     //  width: "700", 
-      width: '750',
-     height: '500',
+      width: '600',
+     height: '497',
   //   // Width of the chart
      // height: "600", 
   //     // Height of the 
@@ -165,7 +165,7 @@ const Pie3d = () => {
         // numberSuffix: "K",
         //Set the theme for your chart
         // theme: "fusion",
-        caption: "Threats",
+        // caption: "Threats",
         // "showBorder": "1",
         // "borderThickness": "4",
         // "borderAlpha": "80",

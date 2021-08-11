@@ -47,7 +47,7 @@ const pdata = [
           name: 'Jun',
           "Security (threats)": 5,
           Low: 3,
-          Medium: 3,
+          Medium: 2,
           High: 0,
           Critical: 0,
         },
@@ -93,7 +93,7 @@ const pdata = [
             Low: 8,
             Medium: 4,
             High: 2,
-           Critical: 2,
+           Critical: 3,
           },
     
           {

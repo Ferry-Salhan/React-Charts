@@ -22,15 +22,44 @@ const App = () => {
       <Graph />
      </div>
 
+     <div className="mycontent">
+     <div className="manage">
+     <h3>Vulnerabilities Management</h3>
+     </div>
+     <div className="mythreats">
+     <h3>Threats</h3>
+     </div>
+      </div>
+
       <div className="wrapper-content">
       <BarGraph /> 
        <PieGraph /> 
        </div>
 
+       <div className="mycontent">
+     <div className="manage">
+     <h3>Service Availability</h3>
+     </div>
+     <div className="mythreats">
+     <h3>Response Time (ms)</h3>
+     </div>
+      </div>
+
        <div className="wrapper-content">
        <LineDashedChart />
        <DotlineChart />
        </div>
+
+       <div className="mycontent">
+     <div className="manage">
+     <h3 style={{
+      paddingLeft: 50,
+     }}>Security</h3>
+     </div>
+     <div className="mythreats">
+     <h3>Throughput</h3>
+     </div>
+      </div>
 
        <div className="wrapper-content">
        <ComposedChart />

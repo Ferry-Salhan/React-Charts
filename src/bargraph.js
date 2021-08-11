@@ -139,8 +139,8 @@ export default class Bargraph extends PureComponent {
       {/* <p className="service">Security</p> */}
       <ResponsiveContainer width="100%" height="100%">
       
-      <BarChart data={pdata} 
-         width={200} height={400} 
+      <BarChart data={pdata}    
+         width={200} height={200} 
         backgroundColor="rgb(17, 17, 17)"
         margin={{
             top: 5, right: 60, left: 20, bottom: 10
@@ -161,7 +161,10 @@ export default class Bargraph extends PureComponent {
           label={{ fill: "#fff", angle: -90, position: 'insideLeft' }}
            />
           <Tooltip />
-          <Legend verticalAlign="bottom" height={36} />
+          <Legend 
+          verticalAlign="bottom" height={36} 
+          
+          />
 
           {/* <Line type="monotone" dataKey="pv" stroke="#8884d8" dot={<CustomizedDot />} />
           <Line type="monotone" dataKey="uv" stroke="#82ca9d" /> */}
